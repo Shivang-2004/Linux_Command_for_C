@@ -26,5 +26,13 @@ fi
 Afther that give it the permission to execute 
 chmod +x <name>.sh
 
-now simply run this 
-./<name>.sh your_c_program.c
+
+Move the Script to a Directory in the PATH
+mkdir -p ~/bin
+mv <name>.sh ~/bin/
+
+Ensure that ~/bin is in your PATH. If not, you can add it to your shell profile 
+export PATH="$PATH:~/bin"
+
+now run 
+<name>.sh your_program.c
