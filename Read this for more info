@@ -1,0 +1,30 @@
+Copy paste this script in your texteditor and save it with <name>.sh (ubuntu)
+
+#!/bin/bash
+
+# Check if a C file is provided as an argument
+if [ $# -eq 0 ]; then
+    echo "Usage: $0 <your_c_program.c>"
+    exit 1
+fi
+
+# Extract the filename without the extension
+filename=$(basename "$1" .c)
+
+# Compile the C program with necessary libraries
+gcc -o "$filename" "$1" -lm  # Example: -lm for math library, add more as needed
+
+# Check if compilation was successful
+if [ $? -eq 0 ]; then
+    echo "Compilation successful. Executing $filename..."
+    # Execute the compiled file
+    "./$filename"
+else
+    echo "Compilation failed."
+fi
+
+Afther that give it the permission to execute 
+chmod +x <name>.sh
+
+now simply run this 
+./<name>.sh your_c_program.c
